@@ -5,9 +5,9 @@ using MotoCenter.Infrastructure.Context.v1;
 
 namespace MotoCenter.Infrastructure.Repositories.v1
 {
-    public class MotorcycleRepository(AppDbContext context) : IMotorcycleRepository
+    public class MotorcycleRepository(ApplicationDbContext context) : IMotorcycleRepository
     {
-        private readonly AppDbContext _context = context;
+        private readonly ApplicationDbContext _context = context;
 
         public async Task<Motorcycle> GetByIdAsync(int id)
         {

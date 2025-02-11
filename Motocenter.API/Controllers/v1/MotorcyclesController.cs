@@ -5,14 +5,15 @@ using MotoCenter.Application.Services.v1;
 namespace MotoCenter.API.Controllers.v1
 {
     [ApiController]
-    [Route("api/[controller]")]
-    public class MotorcyclesController : ControllerBase
+    [Route("[controller]")]
+    public class MotorcyclesController(MotorcycleAppService motorcycleAppService) : ControllerBase
     {
-        private readonly MotorcycleAppService _motorcycleAppService;
+        private readonly MotorcycleAppService _motorcycleAppService = motorcycleAppService;
 
-        public MotorcyclesController(MotorcycleAppService motorcycleAppService)
+        [HttpGet("health-check")]        
+        public IActionResult Get()
         {
-            _motorcycleAppService = motorcycleAppService;
+            return Ok("API is working");
         }
 
         [HttpGet]

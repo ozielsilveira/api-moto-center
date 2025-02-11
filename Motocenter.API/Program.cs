@@ -1,4 +1,7 @@
+using Microsoft.EntityFrameworkCore;
+using Microsoft.OpenApi.Models;
 using MotoCenter.Application.Mapping;
+using MotoCenter.Infrastructure.Context.v1;
 
 namespace MotoCenter.API
 {
@@ -9,15 +12,23 @@ namespace MotoCenter.API
             var builder = WebApplication.CreateBuilder(args);
 
             // Add services to the container.
-            builder.Services.AddOpenApi();
+            builder.Services.AddControllers();
 
             // Specify the correct AddAutoMapper method
-            builder.Services.AddAutoMapper(typeof(MappingProfile));
+            builder.Services.AddAutoMapper(
+                typeof(MappingProfile)
+            );
 
-            // Add other services
-            builder.Services.AddControllers();
             builder.Services.AddEndpointsApiExplorer();
-            // builder.Services.AddSwaggerGen(); // This line requires the Microsoft.OpenApi.Models namespace
+            builder.Services.AddSwaggerGen(c =>
+            {
+                c.SwaggerDoc("v1", new OpenApiInfo { Title = "MotoCenter API", Version = "v1" });
+            });
+
+            // Adicionar serviços ao contêiner.
+            builder.Services.AddDbContext<ApplicationDbContext>(options =>
+                options.UseNpgsql(builder.Configuration.GetConnectionString("DefaultConnection"))
+            );
 
             // Add CORS policy
             builder.Services.AddCors(options =>
@@ -36,8 +47,8 @@ namespace MotoCenter.API
             if (app.Environment.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
-                // app.UseSwagger();
-                // app.UseSwaggerUI();
+                app.UseSwagger(); // Ativa o Swagger em desenvolvimento
+                app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "MotoCenter API v1")); // Configura o Swagger UI
             }
             else
             {
@@ -56,25 +67,6 @@ namespace MotoCenter.API
             app.UseAuthorization();
 
             app.MapControllers();
-
-            var summaries = new[]
-            {
-                    "Freezing", "Bracing", "Chilly", "Cool", "Mild", "Warm", "Balmy", "Hot", "Sweltering", "Scorching"
-                };
-
-            app.MapGet("/weatherforecast", () =>
-            {
-                var forecast = Enumerable.Range(1, 5).Select(index =>
-                    new WeatherForecast
-                    (
-                        DateOnly.FromDateTime(DateTime.Now.AddDays(index)),
-                        Random.Shared.Next(-20, 55),
-                        summaries[Random.Shared.Next(summaries.Length)]
-                    ))
-                    .ToArray();
-                return forecast;
-            })
-            .WithName("GetWeatherForecast");
 
             await app.RunAsync();
         }
