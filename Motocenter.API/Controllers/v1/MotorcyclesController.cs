@@ -5,18 +5,27 @@ using MotoCenter.Application.Services.v1;
 namespace MotoCenter.API.Controllers.v1
 {
     [ApiController]
-    [Route("[controller]")]
-    public class MotorcyclesController(MotorcycleAppService motorcycleAppService) : ControllerBase
+    [ApiVersion("1")]
+    [Route("api/v{version:apiVersion}/[controller]")]
+    [Produces("application/json")]
+    public class MotorcyclesController : ControllerBase
     {
-        private readonly MotorcycleAppService _motorcycleAppService = motorcycleAppService;
+        private readonly MotorcycleAppService _motorcycleAppService;
 
-        [HttpGet("health-check")]        
+        public MotorcyclesController(MotorcycleAppService motorcycleAppService)
+        {
+            _motorcycleAppService = motorcycleAppService;
+        }
+
+        [HttpGet("health-check")]
+        [ProducesResponseType(typeof(string), StatusCodes.Status200OK)]
         public IActionResult Get()
         {
             return Ok("API is working");
         }
 
         [HttpGet]
+        [ProducesResponseType(typeof(MotorcycleDto), StatusCodes.Status200OK)]
         public async Task<ActionResult<List<MotorcycleDto>>> GetMotorcycles()
         {
             var motorcycles = await _motorcycleAppService.GetMotorcyclesAsync();
@@ -24,6 +33,7 @@ namespace MotoCenter.API.Controllers.v1
         }
 
         [HttpPost]
+        [ProducesResponseType(typeof(MotorcycleDto), StatusCodes.Status200OK)]
         public async Task<ActionResult> CreateMotorcycle(MotorcycleDto motorcycleDto)
         {
             await _motorcycleAppService.CreateMotorcycleAsync(motorcycleDto);

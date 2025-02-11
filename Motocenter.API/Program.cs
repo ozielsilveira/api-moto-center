@@ -22,7 +22,17 @@ namespace MotoCenter.API
             builder.Services.AddEndpointsApiExplorer();
             builder.Services.AddSwaggerGen(c =>
             {
-                c.SwaggerDoc("v1", new OpenApiInfo { Title = "MotoCenter API", Version = "v1" });
+                c.SwaggerDoc("v1", new OpenApiInfo
+                {
+                    Title = "MotoCenter API",
+                    Version = "v1",
+                    Description = "API for managing motorcycles",
+                    Contact = new OpenApiContact
+                    {
+                        Name = "Support",
+                        Email = "support@motocenter.com"
+                    }
+                });
             });
 
             // Adicionar serviços ao contêiner.
