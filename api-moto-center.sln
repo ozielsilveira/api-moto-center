@@ -1,0 +1,52 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.31903.59
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MotoCenter.API", "MotoCenter.API\MotoCenter.API.csproj", "{A32EAF2F-72AA-46A8-A70C-820AA8F3897B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MotoCenter.Application", "MotoCenter.Application\MotoCenter.Application.csproj", "{59A1F9E6-A37D-4C85-AE43-3C7A1D81DC02}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MotoCenter.Domain", "MotoCenter.Domain\MotoCenter.Domain.csproj", "{CEA9F0A6-CEF7-4C03-98EA-D2AEDD663CED}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MotoCenter.Infrastructure", "MotoCenter.Infrastructure\MotoCenter.Infrastructure.csproj", "{48573FB9-37D8-4F99-B859-6F4158228DF7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MotoCenter.Tests", "MotoCenter.Tests\MotoCenter.Tests.csproj", "{F381D516-937A-4DEF-BADF-C898FAC9AC89}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MotoCenter.Shared", "MotoCenter.Shared\MotoCenter.Shared.csproj", "{AB61DC6F-828C-4ECB-8C10-865D733501B8}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{A32EAF2F-72AA-46A8-A70C-820AA8F3897B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A32EAF2F-72AA-46A8-A70C-820AA8F3897B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A32EAF2F-72AA-46A8-A70C-820AA8F3897B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A32EAF2F-72AA-46A8-A70C-820AA8F3897B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{59A1F9E6-A37D-4C85-AE43-3C7A1D81DC02}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{59A1F9E6-A37D-4C85-AE43-3C7A1D81DC02}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{59A1F9E6-A37D-4C85-AE43-3C7A1D81DC02}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{59A1F9E6-A37D-4C85-AE43-3C7A1D81DC02}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CEA9F0A6-CEF7-4C03-98EA-D2AEDD663CED}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CEA9F0A6-CEF7-4C03-98EA-D2AEDD663CED}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CEA9F0A6-CEF7-4C03-98EA-D2AEDD663CED}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CEA9F0A6-CEF7-4C03-98EA-D2AEDD663CED}.Release|Any CPU.Build.0 = Release|Any CPU
+		{48573FB9-37D8-4F99-B859-6F4158228DF7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{48573FB9-37D8-4F99-B859-6F4158228DF7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{48573FB9-37D8-4F99-B859-6F4158228DF7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{48573FB9-37D8-4F99-B859-6F4158228DF7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F381D516-937A-4DEF-BADF-C898FAC9AC89}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F381D516-937A-4DEF-BADF-C898FAC9AC89}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F381D516-937A-4DEF-BADF-C898FAC9AC89}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F381D516-937A-4DEF-BADF-C898FAC9AC89}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AB61DC6F-828C-4ECB-8C10-865D733501B8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AB61DC6F-828C-4ECB-8C10-865D733501B8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AB61DC6F-828C-4ECB-8C10-865D733501B8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AB61DC6F-828C-4ECB-8C10-865D733501B8}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
